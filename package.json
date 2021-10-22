@@ -1,0 +1,22 @@
+{
+  "name": "csc307-todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evelyntr/CSC307-ToDoList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evelyntr/CSC307-ToDoList/issues"
+  },
+  "homepage": "https://github.com/evelyntr/CSC307-ToDoList#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
