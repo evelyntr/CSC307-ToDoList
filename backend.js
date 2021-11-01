@@ -6,18 +6,16 @@ const tasks = { /* change this later */
     task_list :
     [
        {
-          id : '123456',
+          id: '123456',
           priority: '5',
           note : 'finish sprint 1',
-          month_due: '11',
-          day_due: '1'
+          due_date: '11/1/2021',
        },
        {
            id: '242424',
            priority: '1',
            note: 'drink',
-           month_due: '10',
-           day_due: '31'
+           due_date: '10/31/2021'
        }
     ]
  }
