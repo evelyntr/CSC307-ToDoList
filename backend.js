@@ -23,8 +23,9 @@ const tasks = { /* change this later */
  }
 
 app.use(express.json());
+
 app.get('/', (req, res) => { /* test */
-    res.send('Hello World!');
+    res.send('To Do List!');
 });
 
 app.get('/tasks/:id', (req, res) => { /* get tasks by id */
@@ -39,7 +40,6 @@ app.get('/tasks/:id', (req, res) => { /* get tasks by id */
  });
 
 /* get tasks by priority, by due date later */
-/* http://localhost:5000/tasks?priority=1 does not work for me */
 /* first rest api #4 */
 
 app.get('/tasks', (req, res) => {
