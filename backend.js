@@ -8,12 +8,14 @@ const tasks = { /* change this later */
        {
           id: '123456',
           priority: '5',
+          completed: '0',
           note : 'finish sprint 1',
           due_date: '11/1/2021',
        },
        {
            id: '242424',
            priority: '1',
+           completed: '0',
            note: 'drink',
            due_date: '10/31/2021'
        }
