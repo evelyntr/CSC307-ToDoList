@@ -8,7 +8,7 @@ const tasks = { /* change this later */
        {
           id: '123456',
           priority: '5',
-          completed: '0',
+          completed: '1',
           note : 'finish sprint 1',
           due_date: '11/1/2021',
        },
@@ -44,8 +44,15 @@ app.get('/tasks/:id', (req, res) => { /* get tasks by id */
 
 app.get('/tasks', (req, res) => {
     const priority = req.query.priority;
+    const completed = req.query.completed;
+
     if (priority != undefined){
         let result = findTaskByPriority(priority);
+        result = {task_list: result};
+        res.send(result);
+    }
+    else if (priority == undefined && completed != undefined){
+        let result = findTaskByCompletion(completed);
         result = {task_list: result};
         res.send(result);
     }
@@ -92,6 +99,10 @@ function findTaskById(id) {
  const findTaskByPriority = (priority) => {
      return tasks['task_list'].filter((task) => task['priority'] === priority);
  }
+
+ const findTaskByCompletion = (completed) => {
+    return tasks['task_list'].filter((task) => task['completed'] === completed);
+}
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
