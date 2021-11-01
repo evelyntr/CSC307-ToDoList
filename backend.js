@@ -27,10 +27,6 @@ app.get('/', (req, res) => { /* test */
     res.send('Hello World!');
 });
 
-app.get('/tasks', (req, res) => { /* retrieve a list of tasks */
-    res.send(tasks);
-});
-
 app.get('/tasks/:id', (req, res) => { /* get tasks by id */
     const id = req.params['id'];
     let result = findTaskById(id);
@@ -53,7 +49,7 @@ app.get('/tasks', (req, res) => {
         result = {task_list: result};
         res.send(result);
     }
-    else{
+    else {
         res.send(tasks);
     }
 });
