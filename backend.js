@@ -6,14 +6,14 @@ const tasks = { /* change this later */
     task_list :
     [
        {
-          id : '1',
+          id : '123456',
           priority: '5',
           note : 'finish sprint 1',
           month_due: '11',
           day_due: '1'
        },
        {
-           id: '2',
+           id: '242424',
            priority: '1',
            note: 'drink',
            month_due: '10',
