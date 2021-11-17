@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const userServices = require("./models/taskServices");
+const taskServices = require("./models/taskServices");
 
 const app = express();
 const port = 5000;
@@ -13,11 +13,11 @@ app.get("/", (req, res) => {
   res.send("To Do List!");
 });
 
-app.get("/users", async (req, res) => {
+app.get("/tasks", async (req, res) => {
   const name = req.query["name"];
   try {
     const result = await taskServices.getUsers(name);
-    res.send({ users_list: result });
+    res.send({ taskList: result });
   } catch (error) {
     console.log(error);
     res.status(500).send("An error ocurred in the server.");

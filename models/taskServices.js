@@ -17,7 +17,7 @@ async function getUsers(name) {
   /* improve later */
   let result;
   if (name === undefined) {
-    result = await userModel.find();
+    result = await taskModel.find();
   } else if (name) {
     result = await findUserByName(name);
   }
@@ -26,7 +26,7 @@ async function getUsers(name) {
 
 async function findUserById(id) {
   try {
-    return await userModel.findUserById(id);
+    return await taskModel.findUserById(id);
   } catch (error) {
     console.log(error);
     return undefined;
@@ -35,7 +35,7 @@ async function findUserById(id) {
 
 async function addUser(user) {
   try {
-    const userToAdd = new userModel(user);
+    const userToAdd = new taskModel(user);
     const savedUser = await userToAdd.save();
     return savedUser;
   } catch (error) {
