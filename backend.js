@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const userServices = require("./models/user-services");
+const userServices = require("./models/taskServices");
 
 const app = express();
 const port = 5000;
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.get("/users", async (req, res) => {
   const name = req.query["name"];
   try {
-    const result = await userServices.getUsers(name);
+    const result = await taskServices.getUsers(name);
     res.send({ users_list: result });
   } catch (error) {
     console.log(error);
@@ -26,7 +26,7 @@ app.get("/users", async (req, res) => {
 
 app.get("/users/:id", async (req, res) => {
   const id = req.params["id"];
-  const result = await userServices.findUserById(id);
+  const result = await taskServices.findUserById(id);
   if (result === undefined || result === null)
     res.status(404).send("Resource not found.");
   else {
@@ -36,7 +36,7 @@ app.get("/users/:id", async (req, res) => {
 
 app.post("/users", async (req, res) => {
   const user = req.body;
-  const savedUser = await userServices.addUser(user);
+  const savedUser = await taskServices.addUser(user);
   if (savedUser) res.status(201).send(savedUser);
   else res.status(500).end();
 });

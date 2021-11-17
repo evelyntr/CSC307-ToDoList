@@ -8,7 +8,7 @@ const TaskSchema = new mongoose.Schema(
       trim: true,
     },
     priority: {
-      type: Number /* higher number = higher priority */,
+      type: Number /* 1 - 10, higher number = higher priority */,
       required: true,
       trim: true,
     },
