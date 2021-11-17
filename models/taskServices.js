@@ -13,11 +13,11 @@ mongoose /* change later to include user name & password */
   )
   .catch((error) => console.log(error));
 
-async function getUsers(name) {
+async function getTasks(name) {
   /* improve later */
   let result;
   if (name === undefined) {
-    result = await userModel.find();
+    result = await taskModel.find();
   } else if (name) {
     result = await findUserByName(name);
   }
@@ -26,7 +26,7 @@ async function getUsers(name) {
 
 async function findUserById(id) {
   try {
-    return await userModel.findUserById(id);
+    return await user.findUserById(id);
   } catch (error) {
     console.log(error);
     return undefined;
