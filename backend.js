@@ -9,30 +9,6 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-// const tasks = {
-//   /* change this later */
-//   task_list: [
-//     {
-//       id: "123456",
-//       priority: "5",
-//       completed: "1",
-//       note: "finish sprint 1",
-//       due_date: "11/1/2021",
-//     },
-//     {
-//       id: "242424",
-//       priority: "1",
-//       completed: "0",
-//       note: "drink",
-//       due_date: "10/31/2021",
-//     },
-//   ],
-// };
-
-// function randID() {
-//   return Math.floor(Math.random() * 1000000 + 1);
-// }
-
 app.get("/", (req, res) => {
   res.send("To Do List!");
 });
