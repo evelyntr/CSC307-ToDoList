@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const TaskSchema = new mongoose.Schema(
   {
     description: {
@@ -17,12 +18,15 @@ const TaskSchema = new mongoose.Schema(
       required: false /* optional */,
       trim: true,
     },
+    completed: {  // add complete boolean attribute, need it set as false initially
+      type: Boolean,
+      required: true /* optional */,
+      trim: true,
+      default: false,
+    },
   },
   { collection: "taskList" }
 );
 
 const Task = mongoose.model("Task", TaskSchema);
 module.exports = Task;
-
-const p = 1;
-// new var

@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.get("/tasks", async (req, res) => {
   const name = req.query["name"];
   try {
-    const result = await taskServices.getUsers(name);
+    const result = await taskServices.getTasks(name);
     res.send({ taskList: result });
   } catch (error) {
     console.log(error);
@@ -24,20 +24,20 @@ app.get("/tasks", async (req, res) => {
   }
 });
 
-app.get("/users/:id", async (req, res) => {
+app.get("/tasks/:id", async (req, res) => {
   const id = req.params["id"];
-  const result = await taskServices.findUserById(id);
+  const result = await taskServices.findTaskById(id);
   if (result === undefined || result === null)
     res.status(404).send("Resource not found.");
   else {
-    res.send({ users_list: result });
+    res.send({ taskList: result });
   }
 });
 
-app.post("/users", async (req, res) => {
-  const user = req.body;
-  const savedUser = await taskServices.addUser(user);
-  if (savedUser) res.status(201).send(savedUser);
+app.post("/tasks", async (req, res) => {
+  const task = req.body;
+  const savedTask = await taskServices.addTask(task);
+  if (savedTask) res.status(201).send(savedTask);
   else res.status(500).end();
 });
 
