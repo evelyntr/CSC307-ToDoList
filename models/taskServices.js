@@ -13,41 +13,44 @@ mongoose /* change later to include user name & password */
   )
   .catch((error) => console.log(error));
 
-async function getUsers(name) {
+async function getTasks(name) {
   /* improve later */
   let result;
   if (name === undefined) {
     result = await taskModel.find();
   } else if (name) {
-    result = await findUserByName(name);
+    result = await findTaskByName(name);
   }
   return result;
 }
 
-async function findUserById(id) {
+// working
+async function findTaskById(id) {
   try {
-    return await taskModel.findUserById(id);
+    return await taskModel.findById(id);
   } catch (error) {
     console.log(error);
     return undefined;
   }
 }
 
-async function addUser(user) {
+// working
+async function addTask(task) {
   try {
-    const userToAdd = new taskModel(user);
-    const savedUser = await userToAdd.save();
-    return savedUser;
+    const taskToAdd = new taskModel(task);
+    const savedTask = await taskToAdd.save();
+    return savedTask;
   } catch (error) {
     console.log(error);
     return false;
   }
 }
 
-async function findUserByName(name) {
+async function findTaskByName(name) {
   return await taskModel.find({ name: name });
 }
 
-exports.getUsers = getUsers;
-exports.findUserById = findUserById;
-exports.addUser = addUser;
+
+exports.getTasks = getTasks;
+exports.findTaskById = findTaskById;
+exports.addTask = addTask;
