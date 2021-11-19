@@ -5,7 +5,14 @@ dotenv.config();
 
 mongoose /* change later to include user name & password */
   .connect(
-    "mongodb+srv://dylanc3:dbmongo307@cluster307.zvkgk.mongodb.net/ToDoList",
+    /* "mongodb+srv://dylanc3:dbmongo307@cluster307.zvkgk.mongodb.net/ToDoList", */
+    "mongodb+srv://" +
+      process.env.MONGO_USER +
+      ":" +
+      process.env.MONGO_PWD +
+      "@cluster307.zvkgk.mongodb.net/" +
+      process.env.MONGO_DB +
+      "?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -48,6 +55,6 @@ async function findUserByName(name) {
   return await taskModel.find({ name: name });
 }
 
-exports.getUsers = getUsers;
+/*exports.getUsers = getUsers; */
 exports.findUserById = findUserById;
 exports.addUser = addUser;
