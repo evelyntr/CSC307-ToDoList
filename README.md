@@ -1,3 +1,39 @@
+# Project Blurb
+
+# UI Prototype
+
+https://www.figma.com/proto/Tr7I1qQoarBi5osA1itqxg/to-do-list?page-id=0%3A1&node-id=4%3A2&starting-point-node-id=4%3A2
+
+Last Updated: October 28th, 2021
+
+# Development Environment Setup 
+* (probably the npm stuff)
+
+# Diagrams
+
+Class Diagram:
+
+[UML Diagram-1.pdf](https://github.com/evelyntr/CSC307-ToDoList/files/7621659/UML.Diagram-1.pdf)
+
+Deployment/Component Diagram:
+
+*add here
+
+
+# Code Coverage Report
+
+*add here
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
