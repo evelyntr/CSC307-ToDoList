@@ -35,8 +35,9 @@ Deployment/Component Diagram:
 # To get started with the repo 
 1. Clone master branch
 2. Download Node.js with **npm install**
-3. Install React.js icons with **npm install react-icons --save**
-4. Run with **npm start**
+3. Install react-router-dom **npm i react-router-dom**
+4. Install React.js icons with **npm install react-icons --save**
+5. Run with **npm start**
 
 
 
