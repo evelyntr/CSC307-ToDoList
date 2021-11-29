@@ -1,5 +1,8 @@
 # Project Blurb
 
+include a description of your project and 
+include  the  implemented  features.
+
 # UI Prototype
 
 https://www.figma.com/proto/Tr7I1qQoarBi5osA1itqxg/to-do-list?page-id=0%3A1&node-id=4%3A2&starting-point-node-id=4%3A2
