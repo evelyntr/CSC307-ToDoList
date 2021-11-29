@@ -34,7 +34,10 @@ Deployment/Component Diagram:
 
 
 
-# Getting Started with Create React App
+
+
+# Take what we need from this section 
+Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
