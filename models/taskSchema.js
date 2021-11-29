@@ -20,7 +20,7 @@ const TaskSchema = new mongoose.Schema(
     },
     completed: {  // add complete boolean attribute, need it set as false initially
       type: Boolean,
-      required: true /* optional */,
+      required: true,
       trim: true,
       default: false,
     },

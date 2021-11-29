@@ -41,6 +41,18 @@ app.post("/tasks", async (req, res) => {
   else res.status(500).end();
 });
 
+app.delete("/tasks/:id", async (req, res) => {
+  /* works to delete via id */
+  const id = req.params["id"];
+  const result = await taskServices.findTaskById(id);
+  if (result === undefined || result.length == 0)
+    res.status(404).send("Resource not found.");
+  else {
+    await taskServices.deleteTask(result);
+    res.status(204).end();
+  }
+});
+
 // app.get("/tasks", (req, res) => {
 //   const priority = req.query.priority;
 //   const completed = req.query.completed;
