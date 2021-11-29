@@ -10,7 +10,7 @@ function HomePage() {
                 <div className='col'>
                     <div className='text'>
                         <h1 className='header'>a simple to-do list designed to put you at ease</h1>
-                        <Link to='/myTodoList'>
+                        <Link to='/mytodolist'>
                         <button className='start-button'>Get Started</button>
                         </Link>
                     </div>
