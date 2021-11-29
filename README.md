@@ -32,10 +32,11 @@ Deployment/Component Diagram:
 
 
 
-
-
-
-
+# To get started with the repo 
+1. Clone master branch
+2. Download Node.js with **npm install**
+3. Install React.js icons with **npm install react-icons --save**
+4. Run with **npm start**
 
 
 
