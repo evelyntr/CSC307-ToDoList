@@ -37,8 +37,8 @@ Deployment/Component Diagram:
 2. Download Node.js **npm install**
 3. Install react-router-dom **npm i react-router-dom**
 4. Install React.js icons **npm install react-icons --save**
-5. Install Font Awesome icons **npm i --save @fortawesome/react-fontawesome**
-6. Run with **npm start**
+5. Install Font Awesome icons following instructions here _https://fontawesome.com/v6.0/docs/web/use-with/react/_
+7. Run with **npm start**
 
 
 
