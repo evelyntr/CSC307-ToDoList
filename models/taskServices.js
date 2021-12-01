@@ -5,7 +5,6 @@ dotenv.config();
 
 mongoose /* change later to include user name & password */
   .connect(
-    /* "mongodb+srv://dylanc3:dbmongo307@cluster307.zvkgk.mongodb.net/ToDoList", */
     "mongodb+srv://" +
       process.env.MONGO_USER +
       ":" +
@@ -20,29 +19,28 @@ mongoose /* change later to include user name & password */
   )
   .catch((error) => console.log(error));
 
-async function getTasks(name) {
-  /* improve later */
+async function getTasks(task_name, list_name) {
+  /* tasks must always have BOTH task AND list name */
   let result;
-  if (name === undefined) {
+  if (task_name === undefined && list_name === undefined) {
     result = await taskModel.find();
-  } else if (name) {
-    result = await findTaskByName(name);
+  } else {
+    result = await findTaskByName(task_name, list_name);
   }
   return result;
 }
 
-// working
 async function findTaskById(id) {
   try {
-    return await taskModel.findById(id);
+    return await taskModel.findById(id); /* implement findById function */
   } catch (error) {
     console.log(error);
     return undefined;
   }
 }
 
-// working
 async function addTask(task) {
+  /* should work fine */
   try {
     const taskToAdd = new taskModel(task);
     const savedTask = await taskToAdd.save();
@@ -71,8 +69,13 @@ async function sortList(listName) {
   }
 }
 
+async function findTaskByName(task_name, list_name) {
+  return await taskModel.find({ taskName: task_name, listName: list_name });
+}
+
 
 exports.getTasks = getTasks;
+exports.findTaskByName = findTaskByName;
 exports.findTaskById = findTaskById;
 exports.addTask = addTask;
 exports.deleteTask = deleteTask;

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const TaskSchema = new mongoose.Schema(
   {
     taskName: {
@@ -23,14 +22,14 @@ const TaskSchema = new mongoose.Schema(
       required: false /* optional */,
       trim: true,
     },
-    completed: {  // add complete boolean attribute, need it set as false initially
+    completed: {
       type: Boolean,
       required: true,
       trim: true,
-      default: false,
+      default: false /* default as false */,
     },
   },
-  { collection: "taskList" }
+  { collection: "task_list" }
 );
 
 const Task = mongoose.model("Task", TaskSchema);
