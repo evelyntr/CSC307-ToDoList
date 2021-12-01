@@ -51,6 +51,15 @@ async function addTask(task) {
   }
 }
 
+async function deleteTask(task) {
+  try {
+    return await taskModel.findOneAndDelete(task);
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
 async function findTaskByName(task_name, list_name) {
   return await taskModel.find({ taskName: task_name, listName: list_name });
 }
@@ -59,3 +68,4 @@ exports.getTasks = getTasks;
 exports.findTaskByName = findTaskByName;
 exports.findTaskById = findTaskById;
 exports.addTask = addTask;
+exports.deleteTask = deleteTask;
