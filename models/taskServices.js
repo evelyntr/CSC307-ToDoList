@@ -61,12 +61,19 @@ async function deleteTask(task) {
     return false;
   }
 }
-
-async function findTaskByName(name) {
-  return await taskModel.find({ name: name });
+// get specific list from listName
+async function sortList(listName) {
+  try {
+    return await taskModel.find({listName: listName});
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 }
+
 
 exports.getTasks = getTasks;
 exports.findTaskById = findTaskById;
 exports.addTask = addTask;
 exports.deleteTask = deleteTask;
+exports.sortList = sortList;

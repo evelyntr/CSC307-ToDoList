@@ -24,7 +24,17 @@ app.get("/tasks", async (req, res) => {
   }
 });
 
-app.get("/tasks/:id", async (req, res) => {
+app.get("/tasks/:listName", async (req, res) => {
+  const listName = req.params["listName"];
+  const result = await taskServices.sortList(listName);
+  if (result === undefined || result === null)
+    res.status(404).send("Resource not found.");
+  else {
+    res.send({ taskList: result });
+  }
+});
+
+app.get("/tasks/:listName/:id", async (req, res) => {
   const id = req.params["id"];
   const result = await taskServices.findTaskById(id);
   if (result === undefined || result === null)

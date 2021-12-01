@@ -3,7 +3,12 @@ const mongoose = require("mongoose");
 
 const TaskSchema = new mongoose.Schema(
   {
-    description: {
+    taskName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    listName: {
       type: String,
       required: true,
       trim: true,
