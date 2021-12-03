@@ -13,11 +13,11 @@ const TaskSchema = new mongoose.Schema(
       trim: true,
     },
     priority: {
-      type: Number /* 1 - 10, higher number = higher priority */,
+      type: Number /* default is 0, 0-3 priority */,
       required: true,
       trim: true,
     },
-    dueDate: {
+    dueDate: { // delete??
       type: Date,
       required: false /* optional */,
       trim: true,
