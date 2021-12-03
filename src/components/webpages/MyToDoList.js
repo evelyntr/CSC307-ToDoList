@@ -3,6 +3,7 @@ import './MyToDoList.css';
 import TodoForm from "../TodoForm";
 import TodoList from "../TodoList";
 import { VscEllipsis, VscClose } from 'react-icons/vsc';
+import '../Todo.css';
 // import { GoThreeBars } from 'react-icons/go';
 // import { IoClose } from 'react-icons/io5';
 // import { FiInfo } from 'react-icons/fi';
@@ -20,9 +21,10 @@ function MyToDoList() {
     // const showAllLists = () => setClick(!click);
     const handleClick = () => setClick(!click);
     const closeMenu = () => setClick(false);
-    const handleClearTasks = () => {
+
+    function handleClearTasks() {
         closeMenu();
-        setClick(!click);
+        setTasks(tasks.filter(task => task.completed === false));
     };
 
     const handleDeleteList = () => {
@@ -89,7 +91,7 @@ function MyToDoList() {
                     <div className='single-list'>
                         <div className='single-list-header'>
                             <h1 className='single-list-title'>Today</h1>
-                            <p className='num-tasks'>0</p>
+                            <p className='num-tasks'>{tasks.filter(task => task.completed === false).length}</p>
                     
                             {/* {intialList.map(item => (
                                 <h1 className='single-list-title'>{item.listName}

@@ -14,7 +14,7 @@ function TodoForm({addTask}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (task.action.trim()) {
+        if (task.name.trim()) {
             const crypto = require("crypto");
             const id = crypto.randomBytes(16).toString("hex");
             addTask({ ...task, id: id });
@@ -26,13 +26,13 @@ function TodoForm({addTask}) {
         <form onSubmit={handleSubmit}>
             <input 
                 align="center"
-                placeholder="Add task"
+                placeholder="add task"
                 name="task"
                 type="text"
-                value={task.action}
+                value={task.name}
                 onChange={handleTaskInputChange}
                 />
-            <button size="lg" type="add">add</button>
+            <button size="lg" type="add">+</button>
         </form>
     )
 }
