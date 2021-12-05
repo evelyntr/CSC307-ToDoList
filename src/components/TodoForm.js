@@ -24,6 +24,7 @@ function TodoForm({addTask}) {
     }
     return (
         <form onSubmit={handleSubmit}>
+            <button size="lg" type="add">+</button>
             <input 
                 align="center"
                 placeholder="add task"
@@ -32,7 +33,6 @@ function TodoForm({addTask}) {
                 value={task.name}
                 onChange={handleTaskInputChange}
                 />
-            <button size="lg" type="add">+</button>
         </form>
     )
 }

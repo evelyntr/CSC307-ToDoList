@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 import './MyToDoList.css';
+import '../Todo.css';
+import '../Lists.css';
 import TodoForm from "../TodoForm";
 import TodoList from "../TodoList";
+import ListForm from "../ListForm";
+import AllLists from "../AllLists";
 import { VscEllipsis, VscClose } from 'react-icons/vsc';
-import '../Todo.css';
-// import { GoThreeBars } from 'react-icons/go';
-// import { IoClose } from 'react-icons/io5';
-// import { FiInfo } from 'react-icons/fi';
-
-// const intialList = [
-//     {
-//         listName: 'Today',
-//         numTasks: 0,
-//     },
-// ];
 
 function MyToDoList() {
     const [click, setClick] = useState(false);
 
-    // const showAllLists = () => setClick(!click);
     const handleClick = () => setClick(!click);
     const closeMenu = () => setClick(false);
 
@@ -32,10 +24,20 @@ function MyToDoList() {
         setClick(!click);
     };
 
+
     const [tasks, setTasks] = useState([]);
+    const [lists, setLists] = useState([{
+        id: "abc123",
+        name: "Today",
+        active: true,
+    }]);
 
   function addTask(task) {
     setTasks([task, ...tasks]);
+  }
+
+  function addList(list) {
+      setLists([list, ...lists]);
   }
 
   function toggleComplete(id) {
@@ -52,8 +54,26 @@ function MyToDoList() {
     )
   }
 
+  function toggleActive(id) {
+    setLists(
+      lists.map(list => {
+        if (list.id === id) {
+          return {
+            ...list,
+            active: !list.active
+          };
+        }
+        return list;
+      })
+    )
+  }
+
   function deleteTask(id) {
     setTasks(tasks.filter(task => task.id !== id));
+  }
+
+  function deleteList(id) {
+      setLists(lists.filter(list => list.id !== id));
   }
 
     return (
@@ -61,30 +81,14 @@ function MyToDoList() {
             <div className='row'>
                 <div className='panel'>
                     <div className='all-lists'>
-                        {/* <div className='all-lists-icon' onClick={showAllLists}>
-                            {click ? <IoClose /> : <GoThreeBars />}
-                        </div> */}
                         <h2 className='all-lists-title'>My Lists</h2>
-                        <ul className='list-of-lists' data-lists>
-                            <li className='list-name active'>Today </li>
-                            <li className='list-name'>Tomorrow</li>
+                        <ListForm addList={addList}/>
+                        <AllLists
+                                lists={lists} 
+                                toggleActive={toggleActive}
+                                deleteList={deleteList}>
+                            </AllLists>
                             
-                            
-                            {/* {intialList.map(item => (
-                                <p className='current-list'>{item.listName}
-                                    <p className='num-tasks'>{item.numTasks}</p>
-                                </p>
-                            ))} */}
-                            
-                        </ul>
-                        <form className='add-list-form' action='' data-new-list-form>
-                            <input
-                                placeholder='add list'
-                                type='text'
-                                data-new-list-input
-                            />
-                            <button className='list-button'>+</button>
-                        </form>
                     </div>
                 </div>
                 <div className='main'>
@@ -92,12 +96,6 @@ function MyToDoList() {
                         <div className='single-list-header'>
                             <h1 className='single-list-title'>Today</h1>
                             <p className='num-tasks'>{tasks.filter(task => task.completed === false).length}</p>
-                    
-                            {/* {intialList.map(item => (
-                                <h1 className='single-list-title'>{item.listName}
-                                    <p className='num-tasks'>{item.numTasks}</p>
-                                </h1>
-                            ))} */}
                  
                             <div className='dropdown-icon' onClick={handleClick}>
                                 {click ? <VscClose /> : <VscEllipsis />}
@@ -109,27 +107,15 @@ function MyToDoList() {
                         </div>
                         
                         <div className='single-list-tasks'>
-                            <div className='tasks' data-tasks />
+                            <div className='tasks'/>
+                            <TodoForm addTask={addTask}/>
                             <TodoList
                                 tasks={tasks} 
                                 toggleComplete={toggleComplete}
                                 deleteTask={deleteTask}>
                             </TodoList>
-                            <TodoForm addTask={addTask}/>
-                            {/* <template className='task-template'>
-                                <div className='task'>
-                                    <input type='checkbox' />
-                                    <span className='custom-checkbox' />
-                                </div>
-                            </template>
-                            <form className='add-task-form' action='' data-new-task-form>
-                                <input
-                                    placeholder='add task'
-                                    type='text'
-                                    data-new-task-input
-                                />
-                                <button className='task-button'>+</button>
-                            </form> */}
+                            
+                            
                         </div>
                     </div>
                 </div>
