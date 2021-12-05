@@ -10,7 +10,7 @@ Style Checker: Prettier
 2. npm install cors
 3. npm install dotenv
 4. npm install mongoose
-5. npm install react
+5. npm install react (frontend only)
 6. npm install nodemon -> to run backend: npx nodemon backend.js
 
 **How to install:**
