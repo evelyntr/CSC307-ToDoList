@@ -1,43 +1,122 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MyToDoList.css';
-
-const intialList = [
-    {
-        title: 'Today',
-        numTasks: 0,
-    },
-];
+import '../Todo.css';
+import '../Lists.css';
+import TodoForm from "../TodoForm";
+import TodoList from "../TodoList";
+import ListForm from "../ListForm";
+import AllLists from "../AllLists";
+import { VscEllipsis, VscClose } from 'react-icons/vsc';
 
 function MyToDoList() {
-    
+    const [click, setClick] = useState(false);
+
+    const handleClick = () => setClick(!click);
+    const closeMenu = () => setClick(false);
+
+    function handleClearTasks() {
+        closeMenu();
+        setTasks(tasks.filter(task => task.completed === false));
+    };
+
+    const handleDeleteList = () => {
+        closeMenu();
+        setClick(!click);
+    };
+
+
+    const [tasks, setTasks] = useState([]);
+    const [lists, setLists] = useState([{
+        id: "abc123",
+        name: "Today",
+        active: true,
+    }]);
+
+  function addTask(task) {
+    setTasks([task, ...tasks]);
+  }
+
+  function addList(list) {
+      setLists([list, ...lists]);
+  }
+
+  function toggleComplete(id) {
+    setTasks(
+      tasks.map(task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        }
+        return task;
+      })
+    )
+  }
+
+  function toggleActive(id) {
+    setLists(
+      lists.map(list => {
+        if (list.id === id) {
+          return {
+            ...list,
+            active: !list.active
+          };
+        }
+        return list;
+      })
+    )
+  }
+
+  function deleteTask(id) {
+    setTasks(tasks.filter(task => task.id !== id));
+  }
+
+  function deleteList(id) {
+      setLists(lists.filter(list => list.id !== id));
+  }
+
     return (
         <div className='container'>
             <div className='row'>
-                <div className='col'>
+                <div className='panel'>
                     <div className='all-lists'>
-                        <h1 className='all-lists-title'>My Lists</h1>
-                        <ul className='bullet-lists'>
-                            {intialList.map(item => (
-                                <li className='current-list'>{item.title}
-                                    <p className='num-tasks'>{item.numTasks}</p>
-                                </li>
-                            ))}
+                        <h2 className='all-lists-title'>My Lists</h2>
+                        <ListForm addList={addList}/>
+                        <AllLists
+                                lists={lists} 
+                                toggleActive={toggleActive}
+                                deleteList={deleteList}>
+                            </AllLists>
                             
-                        </ul>
-                        <form >
-                            <input
-                                placeholder='add list'
-                                type='text'
-                                className='new-list'
-                            />
-                            <button className='list-button'>+</button>
-                        </form>
                     </div>
                 </div>
-                <div className='col'>
+                <div className='main'>
                     <div className='single-list'>
-                        <h2 className='single-list-title'>Today</h2>
-                        <p className='num-tasks'>0</p>
+                        <div className='single-list-header'>
+                            <h1 className='single-list-title'>Today</h1>
+                            <p className='num-tasks'>{tasks.filter(task => task.completed === false).length}</p>
+                 
+                            <div className='dropdown-icon' onClick={handleClick}>
+                                {click ? <VscClose /> : <VscEllipsis />}
+                            </div>
+                            <ul className={click ? 'dropdown-menu-active' : 'dropdown-menu'}>
+                                <li className='menu-item-1' onClick={handleClearTasks}>Clear completed tasks</li>
+                                <li className='menu-item-2' onClick={handleDeleteList}>Delete list</li>
+                            </ul>
+                        </div>
+                        
+                        <div className='single-list-tasks'>
+                            <div className='tasks'/>
+                            <TodoForm addTask={addTask}/>
+                            <TodoList
+                                tasks={tasks} 
+                                toggleComplete={toggleComplete}
+                                deleteTask={deleteTask}>
+                            </TodoList>
+                            
+                            
+                        </div>
                     </div>
                 </div>
             </div>
