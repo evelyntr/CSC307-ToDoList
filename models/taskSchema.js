@@ -17,7 +17,8 @@ const TaskSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    dueDate: { // delete??
+    dueDate: {
+      // delete??
       type: Date,
       required: false /* optional */,
       trim: true,
