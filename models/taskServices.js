@@ -32,7 +32,7 @@ async function getTasks(task_name, list_name) {
 
 async function findTaskById(id) {
   try {
-    return await taskModel.findById(id); /* implement findById function */
+    return await taskModel.findById(id);
   } catch (error) {
     console.log(error);
     return undefined;
@@ -62,7 +62,7 @@ async function deleteTask(task) {
 // get specific list from listName
 async function sortList(listName) {
   try {
-    return await taskModel.find({listName: listName});
+    return await taskModel.find({ listName: listName });
   } catch (error) {
     console.log(error);
     return false;
@@ -72,7 +72,6 @@ async function sortList(listName) {
 async function findTaskByName(task_name, list_name) {
   return await taskModel.find({ taskName: task_name, listName: list_name });
 }
-
 
 exports.getTasks = getTasks;
 exports.findTaskByName = findTaskByName;

@@ -12,17 +12,11 @@ const TaskSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    priority: {
-      type: Number,
-      required: true,
-      trim: true,
-      default: 0 /* set default to 0 */,
-    },
     completed: {
       type: Boolean,
-      required: true,
+      required: false,
       trim: true,
-      default: false /* default as false */,
+      default: false,
     },
   },
   { collection: "task_list" }
