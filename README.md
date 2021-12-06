@@ -35,10 +35,9 @@ Backend:
 2. npm install cors
 3. npm install dotenv
 4. npm install mongoose
-5. npm install react (frontend only)
-6. npm install nodemon -> to run backend: npx nodemon backend.js
+5. npm install nodemon -> to run backend: npx nodemon backend.js
 
-**How to install:**
+**How to install linter:**
 
 1. install locally: npm install --save-dev --save-exact prettier
 2. empty config file: echo {}> .prettierrc.json
