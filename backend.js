@@ -10,11 +10,12 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.send("To Do List!");
-// });
+app.get("/", (req, res) => { /* all the tasks */
+  const result = taskServices.getTasks();
+  res.send(result);
+});
 
-app.get("/", async (req, res) => {
+app.get("/tasks", async (req, res) => {
   const name = req.query["name"];
   try {
     const result = await taskServices.getTasks(name);
