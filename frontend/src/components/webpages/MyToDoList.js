@@ -71,8 +71,13 @@ function MyToDoList() {
       })
     );
 
+    const newTask = {
+      name: task.name,
+      listName: activeList.name,
+    };
+
     try {
-      const response = await axios.post("http://localhost:5000/task", task);
+      const response = await axios.post("http://localhost:5000/task", newTask);
       console.log(response);
     } catch (error) {
       console.log(error);
