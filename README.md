@@ -1,8 +1,6 @@
-# CSC307-ToDoList
+# CSC307 - ToDoList : README
 
-Intro to Software Engineering Group Project
-
-# Project Blurb
+# Description
 
 Our minimalistic, helpful application revolves around the concept of a basic To-Do List. With our clean, user-friendly layout, we allow users to enter our home page in order to begin. The features our list platform offers so far is the ability to have multiple lists, while being able to open each one in a side panel. Tasks can then be added to, deleted from, or checked off within each list. We aimed to make list usage accessible to users in the simplest way possible, also allowing them to clear groups of tasks as well as remove entire lists to fit their liking.
 
