@@ -12,17 +12,6 @@ const TaskSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    priority: {
-      type: Number /* default is 0, 0-3 priority */,
-      required: false,
-      trim: true,
-    },
-    dueDate: {
-      // delete??
-      type: Date,
-      required: false /* optional */,
-      trim: true,
-    },
     completed: {
       type: Boolean,
       required: true,
