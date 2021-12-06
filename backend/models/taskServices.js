@@ -3,7 +3,7 @@ const taskModel = require("./taskSchema");
 const dotenv = require("dotenv");
 dotenv.config();
 
-mongoose /* change later to include user name & password */
+mongoose
   .connect(
     "mongodb+srv://" +
       process.env.MONGO_USER +
