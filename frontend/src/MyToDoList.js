@@ -52,16 +52,6 @@ function MyToDoList() {
       })
     );
   }
-  async function fetchAll() {
-    try {
-      const response = await axios.get("http://localhost:5000");
-      return response.data.task_list;
-    } catch (error) {
-      //We're not handling errors. Just logging into the console.
-      console.log(error);
-      return false;
-    }
-  }
 
   async function fetchAll() {
     try {
