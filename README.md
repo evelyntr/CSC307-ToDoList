@@ -1,8 +1,10 @@
-# CSC307 - ToDoList : README
+# CSC307 - EASE : README
+
+Intro to Software Engineering Group Project: To Do List Web Application
 
 # Description
 
-Our minimalistic, helpful application revolves around the concept of a basic To-Do List. With our clean, user-friendly layout, we allow users to enter our home page in order to begin. The features our list platform offers so far is the ability to have multiple lists, while being able to open each one in a side panel. Tasks can then be added to, deleted from, or checked off within each list. We aimed to make list usage accessible to users in the simplest way possible, also allowing them to clear groups of tasks as well as remove entire lists to fit their liking.
+Our minimalistic, helpful application revolves around the concept of a basic To-Do List. With our clean, user-friendly layout, we allow users to enter our home page in order to begin. The function our list platform, Ease, offers so far is the ability to have multiple lists, while being able to open each one in a side panel. Tasks can then be added to, deleted from, or checked off within each list. We aimed to make list usage accessible to users in the simplest way possible, also allowing them to clear groups of tasks as well as remove entire lists to fit their liking.
 
 # UI Prototype
 
