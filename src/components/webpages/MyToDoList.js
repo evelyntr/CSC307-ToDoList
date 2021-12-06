@@ -57,6 +57,14 @@ function MyToDoList() {
     const activeList = lists.find(list => list.id === activeListID);
 
   function addTask(task) {
+    // Send post request
+
+    // Get the response
+
+    // grab id off of response
+
+
+
       setLists(lists.map(list => {
         if (activeListID === list.id) {
             list.tasks.push(task)
