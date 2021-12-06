@@ -1,4 +1,67 @@
-# Getting Started with Create React App
+# CSC307 - EASE : README
+
+Intro to Software Engineering Group Project: To Do List Web Application
+
+# Description
+
+Our minimalistic, helpful application revolves around the concept of a basic To-Do List. With our clean, user-friendly layout, we allow users to enter our home page in order to begin. The function our list platform, Ease, offers so far is the ability to have multiple lists, while being able to open each one in a side panel. Tasks can then be added to, deleted from, or checked off within each list. We aimed to make list usage accessible to users in the simplest way possible, also allowing them to clear groups of tasks as well as remove entire lists to fit their liking.
+
+# UI Prototype
+
+https://www.figma.com/proto/Tr7I1qQoarBi5osA1itqxg/to-do-list?page-id=0%3A1&node-id=4%3A2&starting-point-node-id=4%3A2
+
+Last Updated: October 28th, 2021
+
+# Development Environment Setup
+
+Style Checker: Prettier
+
+Frontend:
+
+**How to install:**
+
+1. Clone master branch
+2. Download Node.js **npm install**
+3. Install react-router-dom **npm i react-router-dom**
+4. Install React.js icons **npm install react-icons --save**
+5. Install Font Awesome icons following instructions here _https://fontawesome.com/v6.0/docs/web/use-with/react/_
+6. Run with **npm start**
+
+Backend:
+
+**Dependencies:**
+
+1. npm install express
+2. npm install cors
+3. npm install dotenv
+4. npm install mongoose
+5. npm install react (frontend only)
+6. npm install nodemon -> to run backend: npx nodemon backend.js
+
+**How to install:**
+
+1. install locally: npm install --save-dev --save-exact prettier
+2. empty config file: echo {}> .prettierrc.json
+3. create .prettierignore file
+4. format all files: npx prettier --write . (can use check to check only already formatted files)
+
+# Diagrams
+
+Class Diagram:
+
+[UML Diagram-1.pdf](https://github.com/evelyntr/CSC307-ToDoList/files/7621659/UML.Diagram-1.pdf)
+
+Deployment/Component Diagram:
+
+[component_deployment diagram](https://user-images.githubusercontent.com/63328944/144848079-b3e136a5-8d87-40fb-a1bc-dcc3605decb8.jpg)
+
+# Code Coverage Report
+
+Our testing covers the model component of the backend with full coverage.
+
+<img width="559" alt="Screen Shot 2021-12-06 at 4 32 41 AM" src="https://user-images.githubusercontent.com/63328944/144847982-308a63bd-e04b-4866-8234-8f97aaac6696.png">
+
+# Extras
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
