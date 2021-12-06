@@ -5,7 +5,6 @@ function TodoForm({addTask}) {
         id: "",
         name: "",
         completed: false,
-        priority: 0
     });
 
     function handleTaskInputChange(e) {

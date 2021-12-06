@@ -16,24 +16,58 @@ function MyToDoList() {
 
     function handleClearTasks() {
         closeMenu();
-        setTasks(tasks.filter(task => task.completed === false));
+        setLists(lists.map(list => {
+            if (activeListID === list.id) {
+                return {
+                    ...list,
+                    tasks: list.tasks.filter(task => task.completed === false),
+                }
+            };
+            
+              return list; 
+            
+        }))
+        
+        // setTasks(tasks.filter(task => task.completed === false));
     };
 
-    const handleDeleteList = () => {
-        closeMenu();
-        setClick(!click);
+    function handleDeleteList() {
+       closeMenu();
+       deleteList(activeListID);
+       
+       
+    //    setLists(
+    //        lists.filter(list => list.id !== activeListID[0])
+    //    );
+       
+    //    setActiveListID(lists.filter(list => list.id !== activeListID[0]));
+    //    setActiveList(lists.find(list => list.id === activeListID[0]));
     };
 
 
-    const [tasks, setTasks] = useState([]);
+    // const [tasks, setTasks] = useState([]);
     const [lists, setLists] = useState([{
         id: "abc123",
         name: "Today",
-        active: true,
+        tasks: [],
     }]);
 
+    const [activeListID, setActiveListID] = useState('abc123');
+    // const [activeList, setActiveList] = useState(lists.find(list => list.id === activeListID[0]));
+    const activeList = lists.find(list => list.id === activeListID);
+
   function addTask(task) {
-    setTasks([task, ...tasks]);
+      setLists(lists.map(list => {
+        if (activeListID === list.id) {
+            list.tasks.push(task)
+            return {
+                ...list,
+            };
+        }
+        return list;
+    }));
+    
+    // setTasks([task, ...tasks]);
   }
 
   function addList(list) {
@@ -41,51 +75,96 @@ function MyToDoList() {
   }
 
   function toggleComplete(id) {
-    setTasks(
-      tasks.map(task => {
-        if (task.id === id) {
-          return {
-            ...task,
-            completed: !task.completed
-          };
+    setLists(lists.map(list => {
+        if (activeListID === list.id) {
+            return {
+                ...list,
+                tasks: list.tasks.map(task => {
+                    if (task.id === id) {
+                        return {
+                            ...task,
+                            completed: !task.completed
+                        };
+                    }
+                    return task;
+                })
+            }
         }
-        return task;
-      })
-    )
+        return list; 
+    }
+  ))
+      
+    // setTasks(
+    //   tasks.map(task => {
+    //     if (task.id === id) {
+    //       return {
+    //         ...task,
+    //         completed: !task.completed
+    //       };
+    //     }
+    //     return task;
+    //   })
+    // )
   }
 
-  function toggleActive(id) {
-    setLists(
-      lists.map(list => {
-        if (list.id === id) {
-          return {
-            ...list,
-            active: !list.active
-          };
-        }
-        return list;
-      })
-    )
+  function setActive(id) {
+    // setActiveListID([id, ...activeListID]);
+    setActiveListID(id);
+  
   }
 
   function deleteTask(id) {
-    setTasks(tasks.filter(task => task.id !== id));
+      setLists(lists.map(list => {
+        if (activeListID === list.id) {
+            return {
+                ...list,
+                tasks: list.tasks.filter(task => task.id !== id),
+            }
+          };
+          return list; 
+        
+    }))
+      
+    // setTasks(tasks.filter(task => task.id !== id));
+  }
+  function updateActiveListDelete() {
+    if(activeListID === lists[0].id) {
+        setActiveListID((lists[1]).id);
+       } else{
+        setActiveListID((lists[0]).id);
+       }
   }
 
   function deleteList(id) {
-      setLists(lists.filter(list => list.id !== id));
+    
+    if (id === activeListID) {
+        updateActiveListDelete();
+    }
+    setLists(lists.filter(list => list.id !== id));
+      
   }
+//   console.log(activeListID, activeList);
+ 
+    console.log(lists);
+    console.log(activeListID);
 
+    // console.log(lists);
+    // console.log(lists[0]);
+    // console.log(lists[0].id);
+    // console.log(activeListID);
+    // console.log(activeList);
     return (
         <div className='container'>
             <div className='row'>
                 <div className='panel'>
                     <div className='all-lists'>
                         <h2 className='all-lists-title'>My Lists</h2>
-                        <ListForm addList={addList}/>
+                        <ListForm 
+                            addList={addList}
+                            setActive={setActive}/>
                         <AllLists
                                 lists={lists} 
-                                toggleActive={toggleActive}
+                                setActive={setActive}
                                 deleteList={deleteList}>
                             </AllLists>
                             
@@ -94,8 +173,8 @@ function MyToDoList() {
                 <div className='main'>
                     <div className='single-list'>
                         <div className='single-list-header'>
-                            <h1 className='single-list-title'>Today</h1>
-                            <p className='num-tasks'>{tasks.filter(task => task.completed === false).length}</p>
+                            <h1 className='single-list-title'>{activeList.name}</h1>
+                            <p className='num-tasks'>{activeList.tasks.filter(task => task.completed === false).length}</p>
                  
                             <div className='dropdown-icon' onClick={handleClick}>
                                 {click ? <VscClose /> : <VscEllipsis />}
@@ -110,7 +189,7 @@ function MyToDoList() {
                             <div className='tasks'/>
                             <TodoForm addTask={addTask}/>
                             <TodoList
-                                tasks={tasks} 
+                                tasks={activeList.tasks} 
                                 toggleComplete={toggleComplete}
                                 deleteTask={deleteTask}>
                             </TodoList>
