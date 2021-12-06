@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineInfoCircle, AiFillInfoCircle } from 'react-icons/ai';
+import '@djthoms/pretty-checkbox/dist/pretty-checkbox.min.css';
 
 function Todo({ task, toggleComplete, deleteTask }) {
     const [click, setClick] = useState(false);
@@ -16,15 +17,21 @@ function Todo({ task, toggleComplete, deleteTask }) {
 
     return (
         <div className='task-input' style={{ display: "flex"}}>
-            <input type="checkbox" onClick={handleCheckbox}/>
-            <li
-                style={{
-                    color: "black",
-                    textDecoration: task.completed ? "line-through" : null
-                }}
-            >
-                {task.name}
-            </li>
+            <div className='pretty p-icon p-round p-smooth'>
+                <input type="checkbox" onClick={handleCheckbox} checked={task.completed}/>
+                <div className="state p-warning">
+                    <i class="icon fa fa-check"></i>
+                    <label><li
+                        style={{
+                            color: task.completed ? "#808080" : 'black',
+                            textDecoration: task.completed ? "line-through" : null
+                        }}
+                    >
+                        {task.name}
+                    </li>
+                    </label>
+                </div>
+            </div>
             <div className='info-icon' onClick={openInfo}>
                 {click ? <AiFillInfoCircle /> : <AiOutlineInfoCircle />}
             </div>

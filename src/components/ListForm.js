@@ -24,8 +24,8 @@ function ListForm({addList, setActive}) {
     }
     return (
         <form onSubmit={handleSubmit}>
-            <button size="lg" type="add">+</button>
-            <input 
+            <button className='addButton' size="lg" type="add">+</button>
+            <input className='new-input'
                 align="center"
                 placeholder="add list"
                 type="text"

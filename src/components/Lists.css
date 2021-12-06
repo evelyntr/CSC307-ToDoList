@@ -54,3 +54,44 @@
     font-weight:900;
     cursor: pointer; 
 }
+
+.list-input {
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+    padding-left: 1.1em;
+
+}
+
+form {
+    display: flex;
+}
+
+.addButton {
+    cursor: pointer;
+    background: 0;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-right: 0.25em;
+    transition: opacity 250ms ease-in;
+}
+
+.addButton:hover {
+    font-weight: 900;
+}
+
+.new-input {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+    font-size: 1.1rem;
+    outline: none;
+    padding: 0.25em;
+    transition: border-bottom 150ms ease-in;
+    order: 2;
+}
+

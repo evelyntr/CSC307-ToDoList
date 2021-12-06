@@ -67,9 +67,9 @@ function MyToDoList() {
 
       setLists(lists.map(list => {
         if (activeListID === list.id) {
-            list.tasks.push(task)
             return {
                 ...list,
+                tasks: [...list.tasks, task]
             };
         }
         return list;
