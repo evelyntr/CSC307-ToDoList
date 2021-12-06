@@ -9,7 +9,7 @@ const TaskSchema = new mongoose.Schema(
     },
     listName: {
       type: String,
-      required: true,
+      required: false /* change back to true later */,
       trim: true,
     },
     completed: {
