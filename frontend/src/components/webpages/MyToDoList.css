@@ -92,10 +92,12 @@
 .menu-item-1:hover {
     border: none;
     background-color: #f2f2f2;
+    cursor: pointer;
 }
 
 .menu-item-2:hover {
     border: none;
     background-color: #f2f2f2;
+    cursor: pointer;
 }
 

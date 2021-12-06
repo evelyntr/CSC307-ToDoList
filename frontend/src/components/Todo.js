@@ -15,7 +15,7 @@ function Todo({ task, toggleComplete, deleteTask }) {
     const openInfo = () => setClick(!click);
 
     return (
-        <div style={{ display: "flex"}}>
+        <div className='task-input' style={{ display: "flex"}}>
             <input type="checkbox" onClick={handleCheckbox}/>
             <li
                 style={{
