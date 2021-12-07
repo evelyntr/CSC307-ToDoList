@@ -59,6 +59,7 @@
     content: "\f05e";
     font-family: "Font Awesome 5 Free";
     padding-right: 10px;
+    font-weight:700;
     color: #777777;
 }
 
@@ -105,11 +106,8 @@
 
 .main {
     margin: 0;
-    /* font-family: "Work Sans", sans-serif; */
     font-weight: 300;
     font-size: 1.5rem;
-    /* background-color: #ffcb3e; */
-    /* color: #f4f4f4; */
     display: grid;
     grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
   }
