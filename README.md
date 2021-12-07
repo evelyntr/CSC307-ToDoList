@@ -60,9 +60,10 @@ Deployment/Component Diagram:
 
 # Code Coverage Report
 
-Our testing covers the model component of the backend with full coverage.
+Our testing covers the model component of the backend with full coverage for task schema.
 
-<img width="559" alt="Screen Shot 2021-12-06 at 4 32 41 AM" src="https://user-images.githubusercontent.com/63328944/144847982-308a63bd-e04b-4866-8234-8f97aaac6696.png">
+<img width="618" alt="Screen Shot 2021-12-06 at 7 50 44 PM" src="https://user-images.githubusercontent.com/63328944/144963026-aa441fe2-9d99-4ce2-b3fb-4eacef9b709d.png">
+
 
 # Extras
 
