@@ -17,7 +17,10 @@ function Todo({ task, toggleComplete, deleteTask }) {
 
   return (
     <div style={{ display: "flex", alignItems: "center", width: 1000 }}>
-      <div class="pretty p-icon p-round p-smooth" style={{ height: 21 }}>
+      <div
+        class="pretty p-icon p-round p-smooth task-input"
+        style={{ height: 21 }}
+      >
         <input
           type="checkbox"
           onClick={handleCheckbox}

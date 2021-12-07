@@ -96,6 +96,7 @@ ul {
   top: 50%;
   height: 3px;
   color: #404040;
+  opacity: 0.5;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: right;
@@ -117,4 +118,9 @@ input {
 
 .task-input {
   display: block;
+}
+
+.p-round:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

@@ -154,13 +154,15 @@ function MyToDoList() {
                 <p
                   className="num-tasks"
                   style={{
-                    fontSize: 50,
+                    fontSize: 25,
                     marginTop: 0,
                     marginBottom: 0,
                     color: "#A9A9A9",
+                    position: "absolute",
+                    right: 250,
                   }}
                 >
-                  {" "}
+                  Task(s) left:{" "}
                   {
                     activeList.tasks.filter((task) => task.completed === false)
                       .length
