@@ -3,6 +3,8 @@ const taskModel = require("./taskSchema");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const Task = mongoose.model("Task", taskModel);
+
 mongoose
   .connect(
     "mongodb+srv://" +
@@ -19,11 +21,17 @@ mongoose
   )
   .catch((error) => console.log(error));
 
+let conn;
+
+function connect(newc) {
+    return (conn = newc);
+  }
+
 async function getTasks(task_name, list_name) {
   /* tasks must always have BOTH task AND list name */
   let result;
   if (task_name === undefined && list_name === undefined) {
-    result = await taskModel.find();
+    result = await Task.find();
   } else {
     result = await findTaskByName(task_name, list_name);
   }
@@ -32,7 +40,7 @@ async function getTasks(task_name, list_name) {
 
 async function findTaskById(id) {
   try {
-    return await taskModel.findById(id); /* implement findById function */
+    return await Task.findById(id); /* implement findById function */
   } catch (error) {
     console.log(error);
     return undefined;
@@ -42,7 +50,7 @@ async function findTaskById(id) {
 async function addTask(task) {
   /* should work fine */
   try {
-    const taskToAdd = new taskModel(task);
+    const taskToAdd = new Task(task);
     const savedTask = await taskToAdd.save();
     return savedTask;
   } catch (error) {
@@ -53,7 +61,7 @@ async function addTask(task) {
 
 async function deleteTask(task) {
   try {
-    return await taskModel.findOneAndDelete(task);
+    return await Task.findOneAndDelete(task);
   } catch (error) {
     console.log(error);
     return false;
@@ -62,7 +70,7 @@ async function deleteTask(task) {
 // get specific list from listName
 async function sortList(listName) {
   try {
-    return await taskModel.find({ listName: listName });
+    return await Task.find({ listName: listName });
   } catch (error) {
     console.log(error);
     return false;
@@ -70,7 +78,7 @@ async function sortList(listName) {
 }
 
 async function findTaskByName(task_name, list_name) {
-  return await taskModel.find({ taskName: task_name, listName: list_name });
+  return await Task.find({ taskName: task_name, listName: list_name });
 }
 
 exports.getTasks = getTasks;
@@ -79,3 +87,5 @@ exports.findTaskById = findTaskById;
 exports.addTask = addTask;
 exports.deleteTask = deleteTask;
 exports.sortList = sortList;
+exports.connect = connect;
+

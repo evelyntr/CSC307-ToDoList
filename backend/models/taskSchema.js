@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 
 const TaskSchema = new mongoose.Schema(
   {
-    name: {
+    taskName: {
       type: String,
       required: true,
       trim: true,
     },
     listName: {
       type: String,
-      required: false /* change back to true later */,
+      required: true,
       trim: true,
     },
     completed: {
@@ -23,4 +23,4 @@ const TaskSchema = new mongoose.Schema(
 );
 
 const Task = mongoose.model("Task", TaskSchema);
-module.exports = Task;
+module.exports = TaskSchema;
