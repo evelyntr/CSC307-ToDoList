@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CSC307-ToDoList
 
 Intro to Software Engineering Group Project
@@ -20,6 +21,8 @@ Style Checker: Prettier
 3. create .prettierignore file
 4. format all files: npx prettier --write . (can use check to check only already formatted files)
 
+=======
+>>>>>>> c22998d6f9c122a5e25f0ad787f4d848de536ac5
 # Project Blurb
 
 include a description of your project and

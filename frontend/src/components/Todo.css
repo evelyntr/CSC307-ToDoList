@@ -1,56 +1,120 @@
 ul {
-    list-style: none;
+  list-style: none;
+}
+
+.info-icon {
+  color: #a9a9a9;
 }
 
 .info-icon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .info {
-    list-style-type: none;
-    align-items: center; 
-    text-align: left; 
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    opacity: 1;
-    transition: all 0.5s ease; 
-    left: -100%;
-    top: 80px;
-    border-radius: 0.2;
-    border-color: 0.2;
+  list-style-type: none;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  opacity: 1;
+  transition: all 0.5s ease;
+  left: -100%;
+  top: 80px;
+  border-radius: 0.2;
+  border-color: 0.2;
 }
 
 .info-active {
-    align-items: center; 
-    text-align: left; 
-    white-space: nowrap;
-    border-color: #565656;
-    flex-direction: column;
-    opacity: 1;
-    border-radius: 0.2;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+  border-color: #565656;
+  flex-direction: column;
+  opacity: 1;
+  border-radius: 0.2;
 }
 
 .info-item-2 {
-    font-weight: 100;
-    padding: 0.5rem 1rem; 
-    height: 100%;
-    align-items: center;
-    display: table;
-    width: 100%;
-    text-align: center;
+  font-weight: 100;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  align-items: center;
+  display: table;
+  width: 100%;
+  text-align: center;
 }
 
 .info-item-2:hover {
-    border: none;
-    background-color: #f2f2f2;
-    cursor: pointer; 
+  border: none;
+  background-color: #f2f2f2;
+  cursor: pointer;
 }
 
 .task-input:hover {
-    border: none;
-    font-weight:900;
-    cursor: pointer; 
+  border: none;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.new-input {
+  margin-bottom: 0;
+}
+
+.new-input {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: 1.1rem;
+  outline: none;
+  padding: 0.25em;
+  transition: border-bottom 150ms ease-in;
+  order: 2;
+}
+
+.addButton {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-right: 0.25em;
+  transition: opacity 250ms ease-in;
+}
+
+.task-input::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  left: 1.5em;
+  top: 50%;
+  height: 3px;
+  color: #404040;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: right;
+  transform-origin: right;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+label,
+input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.task-input {
+  display: block;
 }

@@ -1,69 +1,68 @@
 .homepage {
-    background-color: white;
+  background-color: white;
 }
 
 .container {
-    padding: 100px 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
+  padding: 100px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
 }
 
 .row {
-    align-content: stretch;
-    align-items: center;
-    display: flex;
-    margin-top: -50px;
+  align-content: stretch;
+  align-items: center;
+  display: flex;
+  margin-top: -50px;
 }
 
 .text {
-    max-width: 550px;
-    font-family: Mulish, sans-serif;
-    padding-top:0;
-    padding-bottom: 100px;
+  max-width: 550px;
+  font-family: Mulish, sans-serif;
+  padding-top: 0;
+  padding-bottom: 100px;
 }
 
 .col {
-    padding-right: 15px;
-    padding-left: 15px;
-    flex: 1;
-    max-width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 1;
+  max-width: 50%;
 }
 
 .hook {
-    font-size: 100px;
-    font-family: Mulish, sans-serif;
-    color: #ffcb3e;
-    margin-top:0;
+  font-size: 100px;
+  font-family: Mulish, sans-serif;
+  color: #ffcb3e;
+  margin-top: 0;
 }
 
-
 .header {
-    font-size: 70px; 
-    line-height: 1;
-    font-weight: 700;
-    color: black;
-    margin-bottom: 50px;
-    margin-top:-15px;
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 50px;
+  margin-top: -15px;
 }
 
 img {
-    border: 0;
-    max-width: 100%;
-    vertical-align: middle;
-    display: inline-block;
-    padding-left: 80px;
+  border: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  padding-left: 80px;
 }
 
 .start-button {
-    background-color:  #ffcb3e;
-    padding: 12px 30px;
-    font-size: 20px;
-    font-family: Mulish, sans-serif;
-    color: black;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    border-radius: 8px;
-    font-weight: 550;
+  background-color: #ffcb3e;
+  padding: 12px 30px;
+  font-size: 20px;
+  font-family: Mulish, sans-serif;
+  color: black;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 8px;
+  font-weight: 550;
 }
