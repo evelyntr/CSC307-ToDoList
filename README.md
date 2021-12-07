@@ -53,7 +53,9 @@ Class Diagram:
 
 Deployment/Component Diagram:
 
-[component_deployment diagram](https://user-images.githubusercontent.com/63328944/144848079-b3e136a5-8d87-40fb-a1bc-dcc3605decb8.jpg)
+![component_deployment diagram (1)](https://user-images.githubusercontent.com/63328944/144959896-51e0230a-0403-4a9c-b6de-6ac50a2b612b.jpg)
+
+
 
 # Code Coverage Report
 
