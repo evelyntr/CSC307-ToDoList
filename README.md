@@ -49,7 +49,8 @@ Backend:
 
 Class Diagram:
 
-[UML Diagram-1.pdf](https://github.com/evelyntr/CSC307-ToDoList/files/7621659/UML.Diagram-1.pdf)
+<img width="333" alt="Screen Shot 2021-12-06 at 7 20 11 PM" src="https://user-images.githubusercontent.com/63328944/144960162-3f0dd84d-75a4-4bc4-a946-3e6a3c73cc9a.png">
+
 
 Deployment/Component Diagram:
 
