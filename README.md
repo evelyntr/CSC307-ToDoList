@@ -1,7 +1,7 @@
 # Project Blurb
 
-include a description of your project and 
-include  the  implemented  features.
+include a description of your project and
+include the implemented features.
 
 # UI Prototype
 
@@ -9,8 +9,9 @@ https://www.figma.com/proto/Tr7I1qQoarBi5osA1itqxg/to-do-list?page-id=0%3A1&node
 
 Last Updated: October 28th, 2021
 
-# Development Environment Setup 
-* (probably the npm stuff)
+# Development Environment Setup
+
+- (probably the npm stuff)
 
 # Diagrams
 
@@ -20,29 +21,23 @@ Class Diagram:
 
 Deployment/Component Diagram:
 
-*add here
-
+\*add here
 
 # Code Coverage Report
 
-*add here
+\*add here
 
+# To get started with the repo
 
-
-
-
-
-# To get started with the repo 
 1. Clone master branch
 2. Download Node.js **npm install**
 3. Install react-router-dom **npm i react-router-dom**
 4. Install React.js icons **npm install react-icons --save**
 5. Install Font Awesome icons following instructions here _https://fontawesome.com/v6.0/docs/web/use-with/react/_
-7. Run with **npm start**
+6. Run with **npm start**
 
+# Take what we need from this section
 
-
-# Take what we need from this section 
 Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
