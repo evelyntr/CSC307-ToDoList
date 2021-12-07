@@ -7,14 +7,24 @@ import TodoList from "../TodoList";
 import ListForm from "../ListForm";
 import AllLists from "../AllLists";
 import { VscEllipsis, VscClose } from "react-icons/vsc";
-import axios from "axios";
 
 function MyToDoList() {
   const [click, setClick] = useState(false);
+  const [lists, setLists] = useState([
+    {
+      id: "abc123",
+      name: "Today",
+      tasks: [],
+    },
+  ]);
+
+  const [activeListID, setActiveListID] = useState("abc123");
+  const activeList = lists.find((list) => list.id === activeListID);
 
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
 
+  // clears completed tasks in the active list
   function handleClearTasks() {
     closeMenu();
     setLists(
@@ -29,60 +39,31 @@ function MyToDoList() {
         return list;
       })
     );
-
-    // setTasks(tasks.filter(task => task.completed === false));
   }
 
+  // deletes the active list from the main panel
   function handleDeleteList() {
     closeMenu();
     deleteList(activeListID);
-
-    //    setLists(
-    //        lists.filter(list => list.id !== activeListID[0])
-    //    );
-
-    //    setActiveListID(lists.filter(list => list.id !== activeListID[0]));
-    //    setActiveList(lists.find(list => list.id === activeListID[0]));
   }
 
-  // const [tasks, setTasks] = useState([]);
-  const [lists, setLists] = useState([
-    {
-      id: "abc123",
-      name: "Today",
-      tasks: [],
-    },
-  ]);
+  function addTask(task) {
+    /*linking to backend:
+    1. Send post request
+    2. Get the response
+    3. grab id off of response */
 
-  const [activeListID, setActiveListID] = useState("abc123");
-  // const [activeList, setActiveList] = useState(lists.find(list => list.id === activeListID[0]));
-  const activeList = lists.find((list) => list.id === activeListID);
-
-  async function addTask(task) {
     setLists(
       lists.map((list) => {
         if (activeListID === list.id) {
-          list.tasks.push(task);
           return {
             ...list,
+            tasks: [...list.tasks, task],
           };
         }
         return list;
       })
     );
-
-    const newTask = {
-      name: task.name,
-      listName: activeList.name,
-    };
-
-    try {
-      const response = await axios.post("http://localhost:5000/task", newTask);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-    // setTasks([task, ...tasks]);
   }
 
   function addList(list) {
@@ -109,22 +90,9 @@ function MyToDoList() {
         return list;
       })
     );
-
-    // setTasks(
-    //   tasks.map(task => {
-    //     if (task.id === id) {
-    //       return {
-    //         ...task,
-    //         completed: !task.completed
-    //       };
-    //     }
-    //     return task;
-    //   })
-    // )
   }
 
   function setActive(id) {
-    // setActiveListID([id, ...activeListID]);
     setActiveListID(id);
   }
 
@@ -140,9 +108,9 @@ function MyToDoList() {
         return list;
       })
     );
-
-    // setTasks(tasks.filter(task => task.id !== id));
   }
+
+  // helper function to delete the most recently added/ active list
   function updateActiveListDelete() {
     if (activeListID === lists[0].id) {
       setActiveListID(lists[1].id);
@@ -151,26 +119,18 @@ function MyToDoList() {
     }
   }
 
+  // deletes the list from side panel
   function deleteList(id) {
     if (id === activeListID) {
       updateActiveListDelete();
     }
     setLists(lists.filter((list) => list.id !== id));
   }
-  //   console.log(activeListID, activeList);
 
-  console.log(lists);
-  console.log(activeListID);
-
-  // console.log(lists);
-  // console.log(lists[0]);
-  // console.log(lists[0].id);
-  // console.log(activeListID);
-  // console.log(activeList);
   return (
     <div className="container">
       <div className="row">
-        <div className="panel">
+        <div className="panel" style={{ height: "100%" }}>
           <div className="all-lists">
             <h2 className="all-lists-title">My Lists</h2>
             <ListForm addList={addList} setActive={setActive} />
@@ -181,16 +141,34 @@ function MyToDoList() {
             ></AllLists>
           </div>
         </div>
-        <div className="main">
+        <div className="main" style={{ height: "100%" }}>
           <div className="single-list">
             <div className="single-list-header">
-              <h1 className="single-list-title">{activeList.name}</h1>
-              <p className="num-tasks">
-                {
-                  activeList.tasks.filter((task) => task.completed === false)
-                    .length
-                }
-              </p>
+              <div style={{ height: 70 }}>
+                <h1
+                  className="single-list-title"
+                  style={{ margin: 0, float: "left" }}
+                >
+                  {activeList.name}{" "}
+                </h1>
+                <p
+                  className="num-tasks"
+                  style={{
+                    fontSize: 25,
+                    marginTop: 0,
+                    marginBottom: 0,
+                    color: "#A9A9A9",
+                    position: "absolute",
+                    right: 250,
+                  }}
+                >
+                  Task(s) left:{" "}
+                  {
+                    activeList.tasks.filter((task) => task.completed === false)
+                      .length
+                  }
+                </p>
+              </div>
 
               <div className="dropdown-icon" onClick={handleClick}>
                 {click ? <VscClose /> : <VscEllipsis />}
