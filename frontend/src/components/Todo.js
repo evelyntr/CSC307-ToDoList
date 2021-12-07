@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineInfoCircle, AiFillInfoCircle } from "react-icons/ai";
-import "@djthoms/pretty-checkbox/dist/pretty-checkbox.min.css";
+import "@djthoms/pretty-checkbox";
 
 function Todo({ task, toggleComplete, deleteTask }) {
   const [click, setClick] = useState(false);
