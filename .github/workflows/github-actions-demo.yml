@@ -2,7 +2,7 @@ name: TodoList CI
 
 on:
   push:
-    branches: master
+    branches: linked
 
 jobs:
   backend:
