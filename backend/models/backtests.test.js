@@ -73,6 +73,7 @@ test("Find task by ID", async () => {
     const tasks = await taskServices.findTaskById(id)
     expect(result).toBeDefined()
 	tasks.forEach((tasks) => expect(result._id.toString()).toBe(id));
+	expect(1).toBe(1)
 });
 
 
@@ -102,7 +103,8 @@ test("Delete Task", async () => {
 
 test("Find task by Name", async () => {
 	const name = "hw";
-    const tasks = await taskServices.findTaskByName(name)
+	const tasks = await taskServices.findTaskByName(name)
+	const tasks1 = await taskServices.sortList(name)
     expect(result).toBeDefined()
 	tasks.forEach((tasks) => expect(result.taskName.toString()).toBe(name));
 });
