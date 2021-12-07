@@ -1,4 +1,4 @@
-![github workflow](https://github.com/evelyntr/CSC307-ToDoList/blob/master/.github/workflows/node.js.yml)
+[![github workflow](https://github.com/evelyntr/CSC307-ToDoList/blob/master/.github/workflows/node.js.yml/badge.svg)](https://github.com/evelyntr/CSC307-ToDoList/blob/master/.github/workflows/node.js.yml)
 # CSC307 - EASE : README
 
 Intro to Software Engineering Group Project: To Do List Web Application
